@@ -74,7 +74,7 @@ Links/                   ← saved web content, tagged
 Scratch Pad/             ← thinking in progress, not yet filed
 z_dev/                   ← system-building workspace — NEVER part of the shareable template
   backlog/                ← refactor plans, QA reports, design decisions
-z_workos/
+z_contextos/
   system/                 ← _architecture.md, _context-registry.md, _change-log.md
   rules/                  ← _rules-*.md, one per concern
   rituals/                ← _rituals-index.md + 11 ritual files
@@ -90,7 +90,7 @@ z_workos/
     Domains/[domain]/_context.md + _log.md
 ```
 
-**Why the split** between `Domains/[x]/_index.md` (human dashboard) and `z_workos/_data/Domains/[x]/_context.md` (machine-facing, rewritten wholesale on update): keeping them physically separate stopped a real failure mode — when both lived under one tree, duplicate log files got created in the wrong place and went stale. Rule that came out of it: **exactly one `_log.md` per domain, always under `z_workos/_data/`.**
+**Why the split** between `Domains/[x]/_index.md` (human dashboard) and `z_contextos/_data/Domains/[x]/_context.md` (machine-facing, rewritten wholesale on update): keeping them physically separate stopped a real failure mode — when both lived under one tree, duplicate log files got created in the wrong place and went stale. Rule that came out of it: **exactly one `_log.md` per domain, always under `z_contextos/_data/`.**
 
 ## The Three File Types That Hold Memory
 

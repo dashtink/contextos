@@ -1,6 +1,6 @@
 # Change Log
 
-Append-only. New entries at the top. Every behavior-affecting change gets logged here in the same session it's made — see `z_workos/rules/_rules-system-changes.md`.
+Append-only. New entries at the top. Every behavior-affecting change gets logged here in the same session it's made — see `z_contextos/rules/_rules-system-changes.md`.
 
 ---
 

@@ -74,4 +74,4 @@ See [`docs/05-lessons-learned.md`](docs/05-lessons-learned.md) for how that less
 
 ## A note on provenance
 
-This template is a genericized distillation of a system built and run daily for personal use in a real PMM (product marketing) role. Names, employers, org charts, and business-specific figures have been scrubbed or replaced with illustrative placeholders — the folder structure, the rules, the ritual specs, and the failure stories are real.
+This template is a genericized distillation of a system built and run daily for real, ongoing personal use. Every name, employer, org detail, and business-specific figure has been scrubbed or replaced with an invented placeholder — the folder structure, the rules, the ritual specs, and the failure stories are the real, generalized design lessons; nothing else about the original context is retained.

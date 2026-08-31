@@ -22,7 +22,7 @@ This is the generic, shareable onboarding flow — what you'd hand to someone st
 1. Download from obsidian.md.
 2. Create a new vault — put it inside your Documents directory (e.g. `Documents/ContextOS/`); avoid iCloud Drive/Dropbox unless you understand how syncing interacts with Obsidian.
 3. Note the full vault path.
-4. Enable the **Templates** core plugin (Settings → Core plugins) — required for auto-creating daily journals and meeting notes; set the template folder to `z_workos/templates`.
+4. Enable the **Templates** core plugin (Settings → Core plugins) — required for auto-creating daily journals and meeting notes; set the template folder to `z_contextos/templates`.
 
 **Claude Desktop**
 1. Download and sign in.
@@ -42,7 +42,7 @@ This is the generic, shareable onboarding flow — what you'd hand to someone st
 
 **Two layers:**
 - **Your layer** (daily use): `Daily/` (captures, tasks, journal), `Domains/` (work areas, each with a dashboard), `Projects/` (cross-domain initiatives with a deadline, if used), `Links/`, `Scratch Pad/`.
-- **The system layer** — `z_workos/` — infrastructure the assistant reads/writes: rituals, rules, context storage, templates. Think of it like the engine of a car — it's there, you can look at it, but you don't need to touch it to drive.
+- **The system layer** — `z_contextos/` — infrastructure the assistant reads/writes: rituals, rules, context storage, templates. Think of it like the engine of a car — it's there, you can look at it, but you don't need to touch it to drive.
 
 **Daily/**
 
@@ -53,7 +53,7 @@ This is the generic, shareable onboarding flow — what you'd hand to someone st
 
 **Domains/:** one folder per work area — `_index.md` (dashboard), `reference/` (stable background + links), `working-docs/` (drafts).
 
-**z_workos/_data/:** the assistant's persistent memory. Daily Journal (one note/day — briefing, session summaries, EOD), Weekly Journals (weekly review, carry-forward), Meeting Notes, Domains/[domain]/ (`_context.md` + `_log.md`), People (recurring stakeholders).
+**z_contextos/_data/:** the assistant's persistent memory. Daily Journal (one note/day — briefing, session summaries, EOD), Weekly Journals (weekly review, carry-forward), Meeting Notes, Domains/[domain]/ (`_context.md` + `_log.md`), People (recurring stakeholders).
 
 **What you should edit — freely:** `Notes.md`, `Tasks.md`, `Domains/[domain]/_index.md`, `working-docs/`, `Projects/[project]/_index.md`.
 
@@ -69,7 +69,7 @@ This is the generic, shareable onboarding flow — what you'd hand to someone st
 
 **Option A — worksheet (recommended):** fill out a setup worksheet (name/role/reporting structure, domains, tool connections, org context), paste the completed worksheet into Claude, say `setup contextos onboarding`. The assistant builds the project-instructions file, sets up domain folders and context files, and asks what to do first.
 
-**Option B — fill the template directly:** open `z_workos/templates/workos-core-template.md`, replace every `[PLACEHOLDER]`. Key sections: Who You Are (assistant name), Vault path, Domains, Task Tracking mode (single-tier recommended default), chat-log sources. Then paste the full file into Claude Desktop → your project → Settings → Project Instructions.
+**Option B — fill the template directly:** open `z_contextos/templates/contextos-core-template.md`, replace every `[PLACEHOLDER]`. Key sections: Who You Are (assistant name), Vault path, Domains, Task Tracking mode (single-tier recommended default), chat-log sources. Then paste the full file into Claude Desktop → your project → Settings → Project Instructions.
 
 **Choosing domains** — a good domain is a distinct area with its own stakeholders/projects/state, something you return to across sessions, bounded enough to fit one context file. Illustrative examples:
 
@@ -116,10 +116,10 @@ This is the generic, shareable onboarding flow — what you'd hand to someone st
 
 **Update the voice guide** — edit `_voice-guide.md` (used whenever the assistant drafts in your name): how you naturally write, phrases you'd never say, channel-specific notes, examples of your own writing. More specific is better — "I write short sentences, lead with the point, never say 'circle back'" beats "I write professionally."
 
-**Add a new domain:** create `Domains/[name]/` (`_index.md`, `reference/`, `working-docs/`) + `z_workos/_data/Domains/[name]/` (`_context.md`, `_log.md`) → add to the project instructions domain map → re-paste instructions. Or just tell the assistant — it handles the file creation and tells you what's left.
+**Add a new domain:** create `Domains/[name]/` (`_index.md`, `reference/`, `working-docs/`) + `z_contextos/_data/Domains/[name]/` (`_context.md`, `_log.md`) → add to the project instructions domain map → re-paste instructions. Or just tell the assistant — it handles the file creation and tells you what's left.
 
 **Add a new project:** create `Projects/[name]/_index.md` from the template, add a row to `_projects-index.md`. No context/log split needed (finite, doesn't need current-state/history separation). On shipping: durable knowledge moves to the owning domain's context, status set to shipped, folder moves to `Projects/Complete/`.
 
-**Modify a ritual** — edit `z_workos/rituals/ritual-[name].md` directly to change what it reads/does/produces. No re-paste needed unless it affects project instructions; if a trigger phrase changes, update the Intent Recognition table and re-paste.
+**Modify a ritual** — edit `z_contextos/rituals/ritual-[name].md` directly to change what it reads/does/produces. No re-paste needed unless it affects project instructions; if a trigger phrase changes, update the Intent Recognition table and re-paste.
 
 **Update project instructions** — edit the core project-instructions file in Obsidian when a domain is added/renamed, the vault path changes, a ritual trigger changes, or role/reporting changes. Copy the full file back into Claude Desktop → Project → Settings → Project Instructions.

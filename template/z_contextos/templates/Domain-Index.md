@@ -4,7 +4,7 @@ updated: [YYYY-MM-DD]
 ---
 # [Domain Name] — Dashboard
 
-> Human dashboard. The assistant reads this, but `z_workos/_data/Domains/[domain-name]/_context.md` wins on any conflict — this file is for you to scan quickly, not the authoritative record.
+> Human dashboard. The assistant reads this, but `z_contextos/_data/Domains/[domain-name]/_context.md` wins on any conflict — this file is for you to scan quickly, not the authoritative record.
 
 ## What This Domain Owns
 

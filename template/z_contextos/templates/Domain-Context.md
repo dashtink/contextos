@@ -4,7 +4,7 @@ updated: [YYYY-MM-DD]
 ---
 # [Domain Name] — Context (Current State)
 
-> Machine-facing. Rewritten wholesale on update — replace stale sections, never append below them. History belongs in `_log.md`, not here. See `z_workos/rules/_rules-context.md`.
+> Machine-facing. Rewritten wholesale on update — replace stale sections, never append below them. History belongs in `_log.md`, not here. See `z_contextos/rules/_rules-context.md`.
 
 ## What's True Now
 

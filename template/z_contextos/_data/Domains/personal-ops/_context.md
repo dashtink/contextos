@@ -6,7 +6,7 @@ updated: 2026-01-01
 
 ## What's True Now
 
-[Your reporting structure, key stakeholders, and career goal live here — this is the file `workos-core.md`'s "Who You're Working With" section points to for the fuller picture. Keep it current; this is the domain the manifesto specifically warns is most likely to get silently dropped.]
+[Your reporting structure, key stakeholders, and career goal live here — this is the file `contextos-core.md`'s "Who You're Working With" section points to for the fuller picture. Keep it current; this is the domain the manifesto specifically warns is most likely to get silently dropped.]
 
 ## Key Facts
 

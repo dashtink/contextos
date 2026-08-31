@@ -15,4 +15,4 @@
 
 ## Style Guide
 
-Edit `z_workos/reference/_docx-style-guide.md` to match your own brand or house style (fonts, colors, headers, callout types). The assistant reads it before generating any `.docx`.
+Edit `z_contextos/reference/_docx-style-guide.md` to match your own brand or house style (fonts, colors, headers, callout types). The assistant reads it before generating any `.docx`.

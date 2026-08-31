@@ -1,6 +1,6 @@
 # ContextOS — Rituals Reference
 
-Rituals are behavior specs, not conversation starters — each is a numbered procedure loaded fresh from disk every time it runs, never improvised from memory. The full text of each ritual file lives in [`template/z_workos/rituals/`](../template/z_workos/rituals/); this page is the reference index plus the two cross-cutting flow diagrams.
+Rituals are behavior specs, not conversation starters — each is a numbered procedure loaded fresh from disk every time it runs, never improvised from memory. The full text of each ritual file lives in [`template/z_contextos/rituals/`](../template/z_contextos/rituals/); this page is the reference index plus the two cross-cutting flow diagrams.
 
 ## Diagram 4 — Daily Briefing Flow
 
@@ -90,4 +90,4 @@ Explicitly honest about its own limits — its own spec says it's a periodic cat
 
 ---
 
-Full, runnable specs for all 11 rituals — the actual files an assistant loads at trigger time — live in [`template/z_workos/rituals/`](../template/z_workos/rituals/).
+Full, runnable specs for all 11 rituals — the actual files an assistant loads at trigger time — live in [`template/z_contextos/rituals/`](../template/z_contextos/rituals/).

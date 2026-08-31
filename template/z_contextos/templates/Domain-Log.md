@@ -3,7 +3,7 @@ domain: [domain-name]
 ---
 # [Domain Name] — Log (Append-Only)
 
-> New entries at the top, dated. Never edit past entries — this is the audit trail that explains why current state is what it is. See `z_workos/rules/_rules-context.md`.
+> New entries at the top, dated. Never edit past entries — this is the audit trail that explains why current state is what it is. See `z_contextos/rules/_rules-context.md`.
 
 ## [YYYY-MM-DD]
 

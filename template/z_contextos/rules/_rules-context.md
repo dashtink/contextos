@@ -27,8 +27,8 @@ Opportunistically, not as the primary mechanism:
 
 ## People Files
 
-Create `z_workos/_data/People/[Name].md` the first time a recurring stakeholder appears without one. Minimum contents: role, team, how they relate to your domains, relationship notes. Update opportunistically, not on a schedule.
+Create `z_contextos/_data/People/[Name].md` the first time a recurring stakeholder appears without one. Minimum contents: role, team, how they relate to your domains, relationship notes. Update opportunistically, not on a schedule.
 
 ## One Log Per Domain
 
-Exactly one `_log.md` per domain, always under `z_workos/_data/Domains/[domain]/`. Never create a second one under `Domains/[domain]/` — that split caused duplicate, silently-stale logs in production. If you ever find one there, it's drift; delete it after confirming nothing unique is in it.
+Exactly one `_log.md` per domain, always under `z_contextos/_data/Domains/[domain]/`. Never create a second one under `Domains/[domain]/` — that split caused duplicate, silently-stale logs in production. If you ever find one there, it's drift; delete it after confirming nothing unique is in it.
