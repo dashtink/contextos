@@ -8,6 +8,7 @@ Core constraint: every file the assistant reads costs tokens. Load only what's n
 4. **Don't re-read files already in context** unless an edit was made and the updated version is needed.
 5. **The change log is not required at session start** — only read when historical context is specifically needed.
 6. **Ritual files must be loaded in full to run a ritual** — never run from memory or from the project-instructions summary alone. The summary exists for routing, not execution.
+8. **Large files:** see `_rules-sensitive.md` (grep or ranges for anything over ~200 KB; strip images).
 7. **Lazy-load domain indexes** — in daily briefings, only load domain `_index.md` files for domains with open tasks or recent signal from ambient sources.
 
 ## Why this is a structural rule, not a style preference

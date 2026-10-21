@@ -8,7 +8,7 @@ Document a new workflow behavior in the same session it's introduced — not as 
 
 | Change type | Files to update |
 |---|---|
-| New ritual or behavior change | `_rituals-index.md`, project-instructions file |
+| New ritual or behavior change | `_rituals-index.md`, `project-instructions/contextos-core.md` |
 | New tool or integration added | `_architecture.md` (or a dedicated system-map doc) — component index |
 | New ambient data source | The relevant rules file's ambient-sources section |
 | Vault structure or file paths | `_architecture.md` (vault map + domain index) |
@@ -21,7 +21,7 @@ Document a new workflow behavior in the same session it's introduced — not as 
 2. Update every other file the table above says is affected — in the same session, not "later."
 3. Log it to `_change-log.md`: what changed, and *why*. The why is what lets a future rebuild avoid re-making a mistake already made once.
 4. Update `_context-registry.md`'s last-updated column if a tracked file was touched.
-5. If the change affects future-session behavior (persona, vault path, session protocol, key IDs, ritual list, or core rules), re-paste the project-instructions file into the assistant's project settings. **A change-log entry alone does not change live behavior** — the assistant only sees what's actually loaded into project instructions.
+5. Behavior changes take effect next session automatically, because the router in Claude's project instructions tells the assistant to read `contextos-core.md` from the vault. Re-paste `router.md` only if the vault path or the router itself changed.
 
 ## Why This Is Strict
 

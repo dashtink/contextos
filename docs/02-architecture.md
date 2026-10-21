@@ -10,6 +10,7 @@ An LLM chat assistant has no memory between sessions — every conversation star
 - **Separate "what's true now" from "what happened."** The `_context.md` vs `_log.md` split. Current state must be readable in one pass; history must be reconstructable without polluting it.
 - **Domains vs. Projects are different shapes of memory.** Test: does this have a deadline and a deliverable? → Project. Is it ongoing subject knowledge? → Domain. Filing something in the wrong one is the most common structural error.
 - **A persona is a behavioral contract, not decoration.** Tone rules exist so output is consistently useful under time pressure.
+- **Rules vs. principles.** `rules/` files are contracts for handling files. The operating principles behind them are in the manifesto.
 - **Closed vocabularies over free-form tagging.** An open tagging system drifts within weeks. A closed list forces a propose-then-use step for anything new.
 - **Rituals are behavior specs, not conversation starters.** A numbered procedure loaded fresh from disk every time — not improvised.
 - **The system documents its own changes.** Any behavior-changing decision gets written to the change log in the same session it happens.
@@ -68,19 +69,16 @@ Projects/
   _projects-index.md   ← roll-up
   [project-name]/_index.md  ← goal, deliverables, stakeholders, log
   Complete/             ← shipped projects move here
-Bases/                  ← database-style UI views (Obsidian Bases), not tied to a project
-Reference/               ← cross-domain initiatives, each with _index.md
+Bases/                  ← database-style views (People, Meetings) — views, not data
 Links/                   ← saved web content, tagged
 Scratch Pad/             ← thinking in progress, not yet filed
-z_dev/                   ← system-building workspace — NEVER part of the shareable template
-  backlog/                ← refactor plans, QA reports, design decisions
 z_contextos/
   system/                 ← _architecture.md, _context-registry.md, _change-log.md
   rules/                  ← _rules-*.md, one per concern
-  rituals/                ← _rituals-index.md + 11 ritual files
+  rituals/                ← _rituals-index.md + 12 ritual files
   reference/               ← _persona.md, _voice-guide.md, shared ops layer, style guides
   templates/               ← blank starting points for every generated file type
-  project-instructions/    ← the one file always loaded into the assistant's project config
+  project-instructions/    ← router.md (pasted into Claude once) + contextos-core.md (read from the vault each session)
   x_archive/                ← soft-deleted files, never hard-deleted
   _data/
     Daily-Journal/
@@ -112,9 +110,26 @@ When a project ships: durable knowledge moves into the owning domain's `_context
 
 Three places deliberately use a fixed, small list instead of free text:
 
-- **Tags** — namespaced, closed taxonomy (`domain/*`, `type/*`, `org/*`, `system/*`, `status/*`). New tags require a proposal-and-approval step, logged when added.
+- **Tags** — namespaced, closed taxonomy (`domain/*`, `type/*` including `type/person` and `type/transcript`, `org/*`, `system/*`, `status/*`). New tags require a proposal-and-approval step, logged when added.
 - **Project status** — closed set: `active`, `at-risk`, `not-started`, `shipped`, `parked`. "At-risk" means a deadline has been missed or demonstrably will be — not "this feels urgent."
 - **Task tiers** — deliberately collapsed to one. An earlier version ran two tiers and the second quietly stopped being referenced. Lesson: a task system nobody opens isn't a lightweight backup, it's dead weight.
+
+## Where does this go?
+
+| I have… | It goes in |
+|---|---|
+| A quick thought, unrouted | `Daily/Notes.md` |
+| A task | `Daily/Tasks.md` |
+| Ongoing knowledge about an area | that domain: `_context.md` (now), `_log.md` (history) |
+| A dashboard or draft for an area | `Domains/<d>/_index.md`, `reference/`, `working-docs/` |
+| A deliverable with a deadline | `Projects/<p>/_index.md` |
+| A recurring person | `z_contextos/_data/People/<Name>.md` |
+| A meeting | `z_contextos/_data/Meeting-Notes/` |
+| Shared company or brand material | a reference folder in the owning domain, or its own domain |
+| A web link worth keeping | `Links/` |
+| Half-formed thinking | `Scratch Pad/` |
+
+Two folders per domain is deliberate: `Domains/<d>/` is for you, `z_contextos/_data/Domains/<d>/` is for the assistant.
 
 ## Context Maintenance — the central failure mode, and the fix
 
@@ -138,7 +153,7 @@ Three places deliberately use a fixed, small list instead of free text:
 1. Document a new workflow behavior in the same session it's introduced — not as a follow-up task.
 2. Know which files a given change type touches (structure change → architecture map; new ritual → ritual index + ritual file + bootstrap doc; tagging change → taxonomy + rules file) and update all of them together.
 3. Log every change with a dated entry explaining *what* changed and *why* — the "why" is what lets a future rebuild avoid re-making a mistake already made once.
-4. If the change affects future-session behavior, the project-instructions file needs to be re-pasted into the assistant's project settings — a change-log entry alone doesn't change live behavior.
+4. Behavior changes take effect next session because the router tells the assistant to read `contextos-core.md` from the vault. Re-paste the router only if the vault path or the router changes.
 
 ## Diagram 5 — System Change Flow
 
@@ -152,15 +167,13 @@ flowchart TD
     B -->|Tag taxonomy| C5["_architecture.md tag convention"]
     B -->|Persona / voice| C6["_persona.md or _voice-guide.md"]
     C1 & C2 & C3 & C4 & C5 & C6 --> D["_change-log.md (always) + _context-registry.md (last-updated)"]
-    D --> E{Behavior-affecting?}
-    E -->|Yes| F[Re-paste project instructions into the assistant's project settings]
-    E -->|No| G[Done]
+    D --> E[Takes effect next session — router reads the core file from the vault]
 ```
 
 ## Rebuild Checklist (if starting from nothing)
 
 1. Vault skeleton — the folder structure above, empty.
-2. Bootstrap/project-instructions document — the one file that's always loaded.
+2. Router (paste once) + `contextos-core.md` in the vault — the instructions the assistant loads each session.
 3. Architecture map (`_architecture.md`) — vault map, domain list, tag taxonomy.
 4. Domain skeletons — one folder per subject area, each with empty `_context.md`, `_log.md`.
 5. Three rules files that matter most on day one: context-file rules, tagging rules, token/loading-efficiency rules.

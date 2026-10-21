@@ -12,6 +12,8 @@ This repo is not a wrapper, a plugin, or an API. It's an information-architectur
 
 > The bottleneck in working with AI was never the model. It's context.
 
+Claude does have built-in memory, past-chat search and Projects. They help, but they're opaque and hard to keep current; ContextOS is the explicit, inspectable version. And it isn't a harness: the harness is Claude Desktop or Code, and ContextOS is the context layer it reads and writes.
+
 Most people use an LLM like a search bar — ask, get an answer, close the tab, lose everything. That's fine for trivia. It's a waste for anyone doing real ongoing work, because it treats an increasingly capable collaborator like a vending machine instead of a colleague. Automation tools (agents, scheduled tasks, skills) don't fix this — they let you run a broken process exactly as fast as a good one. If what's being automated doesn't actually know the org chart, you just get wrong answers faster and on a schedule.
 
 ContextOS is the bet that if the infrastructure exists to carry real context forward, the ceiling on what an LLM can do isn't the model — it's the discipline of the system around it.
@@ -22,10 +24,12 @@ ContextOS is the bet that if the infrastructure exists to carry real context for
 |---|---|
 | [`docs/01-manifesto.md`](docs/01-manifesto.md) | The problem, the philosophy, the non-negotiable design principles, what it costs |
 | [`docs/02-architecture.md`](docs/02-architecture.md) | The vault structure, the file-type contract that holds memory, domains vs. projects, closed vocabularies, system diagrams |
-| [`docs/03-rituals.md`](docs/03-rituals.md) | Full behavior specs for the 11 rituals that drive the system — triggers, inputs, steps, outputs |
-| [`docs/04-setup-guide.md`](docs/04-setup-guide.md) | Step-by-step onboarding: tools, vault, Claude configuration, first session, customization |
+| [`docs/03-rituals.md`](docs/03-rituals.md) | Full behavior specs for the 12 rituals that drive the system — triggers, inputs, steps, outputs |
+| [`docs/04-setup-guide.md`](docs/04-setup-guide.md) | The setup path, phase by phase, with a "done when" for each |
+| [`SETUP.md`](SETUP.md) | The setup playbook Claude follows when you point it at this repo |
 | [`docs/05-lessons-learned.md`](docs/05-lessons-learned.md) | The failure modes that actually happened, the fixes that came out of them, and what's still unsolved — a real build history, not a highlight reel |
-| [`template/`](template/) | The actual vault skeleton — copy it into Obsidian and it's ready to configure |
+| [`template/`](template/) | The vault skeleton setup copies and fills in |
+| [`examples/northwind/`](examples/northwind/) | A filled-in fictional domain and project instructions, for reference. Never copied into a live vault. |
 
 ## The core idea, in one diagram
 
@@ -68,11 +72,22 @@ The system is built around one rule most memory systems ignore: **every file an 
 
 See [`docs/05-lessons-learned.md`](docs/05-lessons-learned.md) for how that lesson was actually learned — it wasn't designed in from day one, it came from watching the system fail.
 
-## Quickstart
+## Set it up
 
-1. Read [`docs/01-manifesto.md`](docs/01-manifesto.md) for the *why*.
-2. Read [`docs/02-architecture.md`](docs/02-architecture.md) for the *what*.
-3. Copy [`template/`](template/) into a new Obsidian vault and follow [`docs/04-setup-guide.md`](docs/04-setup-guide.md).
+Point Claude at this repo and say **"set up ContextOS."** Claude reads [`CLAUDE.md`](CLAUDE.md) and [`SETUP.md`](SETUP.md), asks a few questions, copies [`template/`](template/) into a vault, fills it in, and validates it. About two hours, mostly answering questions. Details and the phase-by-phase "done when" are in [`docs/04-setup-guide.md`](docs/04-setup-guide.md).
+
+New here? [`docs/01-manifesto.md`](docs/01-manifesto.md) opens with a one-page summary: what it is, what it does, how to use it, the building blocks and the operating principles.
+
+## Where does this go?
+
+| I have… | It goes in |
+|---|---|
+| A quick thought or a task | `Daily/Notes.md` / `Daily/Tasks.md` |
+| Ongoing knowledge about an area | that domain's `_context.md` (now) and `_log.md` (history) |
+| A deliverable with a deadline | `Projects/<project>/` |
+| A recurring person or a meeting | `z_contextos/_data/People/` / `Meeting-Notes/` |
+
+Each domain has two folders on purpose: `Domains/<d>/` is yours, `z_contextos/_data/Domains/<d>/` is the assistant's. More in [`docs/02-architecture.md`](docs/02-architecture.md).
 
 ## A note on provenance
 

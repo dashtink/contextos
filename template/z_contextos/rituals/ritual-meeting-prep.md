@@ -7,3 +7,7 @@
 **Does:** identifies the domain from the meeting title + attendees, cross-referencing the Personal Ops stakeholder table when it's unclear. Writes **Background**, **Questions**, and **Watch For** sections into the meeting note — using the shared Meeting Note template, not a custom structure invented per-meeting.
 
 **Why the shared template matters:** an earlier version let this ritual and the general meeting-note creation logic each define their own structure, and they drifted apart. One template, always, avoids that.
+
+## If a connector is down
+
+Say so at the top of the output ("Calendar not reachable"), skip that source, and continue with what is available. Never silently produce a result that looks complete. Record the gap in the journal so the next run can catch up. If the vault itself is unreachable, produce the full output in chat so it can be pasted in later.

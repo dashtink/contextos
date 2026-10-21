@@ -1,6 +1,6 @@
 # Tasks — Single Tier
 
-The only task tier — soft follow-ups through hard-deadline deliverables all live here together. See `z_contextos/rules/_rules-context.md` and the parent repo's `docs/02-architecture.md` for why this collapsed from two tiers to one.
+The only task tier — soft follow-ups through hard-deadline deliverables all live here together. See `z_contextos/reference/_why.md` for why this is one tier.
 
 ## Running Tasks
 

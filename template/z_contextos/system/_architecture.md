@@ -18,10 +18,8 @@ Projects/
   [project]/_index.md
   Complete/
 Bases/
-Reference/
 Links/
 Scratch Pad/
-z_dev/                    ← excluded from any shared/template copy of this vault
 z_contextos/
   system/                 ← this file, _context-registry.md, _change-log.md
   rules/
@@ -42,17 +40,16 @@ z_contextos/
 
 | Domain | Owns | Context file |
 |---|---|---|
-| example-domain | Replace with your first real domain | `z_contextos/_data/Domains/example-domain/_context.md` |
 | personal-ops | Org structure, career goals, wins — every instance should have this one | `z_contextos/_data/Domains/personal-ops/_context.md` |
 
-_Add a row here every time a domain is created. See `docs/04-setup-guide.md` in the parent repo for how to choose domains._
+_Add a row here every time a domain is created. A domain is durable knowledge with no end date; a deliverable with a deadline is a project. See `reference/_why.md`._
 
 ## Tag Taxonomy
 
 Closed, namespaced. Propose new tags before using them — see `_rules-tagging.md`.
 
 - `domain/[domain-name]`
-- `type/task` · `type/scratch` · `type/link` · `type/meeting` · `type/decision`
+- `type/task` · `type/scratch` · `type/link` · `type/meeting` · `type/decision` · `type/person` · `type/transcript`
 - `org/[stakeholder-or-team]`
 - `system/ritual` · `system/rule` · `system/change`
 - `status/active` · `status/at-risk` · `status/not-started` · `status/shipped` · `status/parked`

@@ -1,0 +1,9 @@
+filters:
+  and:
+    - file.hasTag("type/meeting")
+views:
+  - type: table
+    name: Meetings
+    order:
+      - file.name
+      - file.mtime
