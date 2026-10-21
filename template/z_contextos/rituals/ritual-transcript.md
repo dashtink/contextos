@@ -13,3 +13,7 @@
 8. Wins prompt.
 
 **Caution baked in:** auto-transcription tools label speakers generically ("Speaker 1" / "Speaker 2"). Never assume who said what unless it's unambiguous from context — wrong attribution is worse than no attribution.
+
+## If a connector is down
+
+Say so at the top of the output ("Calendar not reachable"), skip that source, and continue with what is available. Never silently produce a result that looks complete. Record the gap in the journal so the next run can catch up. If the vault itself is unreachable, produce the full output in chat so it can be pasted in later.

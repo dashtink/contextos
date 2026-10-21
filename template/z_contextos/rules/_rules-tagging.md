@@ -6,8 +6,8 @@ Closed vocabulary. An open tagging system drifts within weeks — this one stays
 
 | Namespace | Values | Example |
 |---|---|---|
-| `domain/*` | one per active domain (see `_architecture.md`) | `domain/example-domain` |
-| `type/*` | `task`, `scratch`, `link`, `meeting`, `decision` | `type/link` |
+| `domain/*` | one per active domain (see `_architecture.md`) | `domain/personal-ops` |
+| `type/*` | `task`, `scratch`, `link`, `meeting`, `decision`, `person`, `transcript` | `type/link` |
 | `org/*` | stakeholder or team names, added as needed | `org/product-team` |
 | `system/*` | `ritual`, `rule`, `change` | `system/change` |
 | `status/*` | `active`, `at-risk`, `not-started`, `shipped`, `parked` | `status/active` |

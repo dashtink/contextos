@@ -10,3 +10,7 @@
 3. Add follow-ups to `Tasks.md` (deadlines under `### Running Tasks`, date bolded).
 4. Update domain context if decisions from the meeting changed domain state.
 5. Flag a task to add a transcript if the meeting was substantive and none exists — this surfaces in the next morning briefing, and gets marked complete once the transcript is added and processed.
+
+## If a connector is down
+
+Say so at the top of the output ("Calendar not reachable"), skip that source, and continue with what is available. Never silently produce a result that looks complete. Record the gap in the journal so the next run can catch up. If the vault itself is unreachable, produce the full output in chat so it can be pasted in later.

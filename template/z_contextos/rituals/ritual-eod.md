@@ -17,3 +17,7 @@
 6. Flag any sessions today that ran without a Session Wrap.
 7. Wins prompt → append to `personal-ops/wins.md` if anything qualifies: `[date] · [category] · [what happened] · [why it matters]`.
 8. Append a `## End of Day` section to today's journal: context updated (or not, and why), tomorrow's priorities, open threads, transcripts pending, sessions without a wrap, wins logged.
+
+## If a connector is down
+
+Say so at the top of the output ("Calendar not reachable"), skip that source, and continue with what is available. Never silently produce a result that looks complete. Record the gap in the journal so the next run can catch up. If the vault itself is unreachable, produce the full output in chat so it can be pasted in later.

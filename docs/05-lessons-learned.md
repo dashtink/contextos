@@ -25,3 +25,19 @@ Filesystem-level access to the vault is not always reliable — it can drop or t
 ---
 
 Not everything was a failure story — the Domain/Project split test held with effectively zero misfiled items across a full audit, and closed vocabularies never drifted once adopted. But the pattern worth taking away isn't "get it right the first time." It's: instrument for the failure, watch it happen anyway, fix the actual mechanism (not the symptom), and write down why — so the next version of the system, or someone else's version of it, doesn't have to relearn it the expensive way.
+
+## Setting up a second vault: the system held, the on-ramp didn't
+
+A second person's setup took three sessions. The design held up; the friction was the on-ramp. Where the time went, and what now prevents it:
+
+| What happened | Fix in this repo |
+|---|---|
+| Repo couldn't be cloned from a sandbox; files fetched one by one | `template/MANIFEST.txt`, and a fetch fallback in `SETUP.md` |
+| Domains designed three times | A "decide domains first" phase with a test and examples |
+| Persona took a long conversation | `_persona-guide.md` with starter options and calibration examples |
+| Transcript flow assumed pasted text | `_source-adapters.md` |
+| A scheduled briefing was built, then removed | Rituals run on demand by default; stated up front |
+| First-pass facts from ambient scan were wrong or incomplete | `[confirm]` plus provenance on every inferred fact |
+| Template residue found by grep | `ritual-setup-check.md`; `example-domain` moved out of the template |
+| A 1 MB note with images couldn't be read | `_rules-sensitive.md` size rule |
+| Ritual index pointed at a file outside the vault | Everything a vault references now lives inside it |

@@ -1,8 +1,10 @@
 ---
 date: [YYYY-MM-DD]
-attendees: []
+title: "[Meeting Title]"   # quote titles like "1:1" so YAML doesn't read them as a time
+attendees: []             # links, e.g. ["[[Jane Doe]]", "[[Sam Lee]]"]
 domain: [domain-name]
-transcript-status: unprocessed
+tags: [type/meeting]
+transcript-status: unprocessed   # unprocessed | processed | none
 ---
 # [Meeting Title] — [YYYY-MM-DD]
 

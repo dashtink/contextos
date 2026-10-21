@@ -2,7 +2,7 @@
 
 **Triggers:** "end of week" / "close it out" / a recurring Friday calendar block
 
-**Goal:** operational weekly close — and **the primary mechanism for keeping domain context current.** See `docs/02-architecture.md#context-maintenance` in the parent repo for why this ritual, specifically, carries that load.
+**Goal:** operational weekly close — and **the primary mechanism for keeping domain context current.** See `z_contextos/reference/_why.md` for why this ritual, specifically, carries that load.
 
 **Steps, in order:**
 
@@ -10,7 +10,7 @@
 2. **Gather the week's raw material.** All of this week's daily journals, all meeting notes dated this week, everything that moved to Completed or became overdue in `Tasks.md`.
 3. **Domain distillation — REQUIRED, this is the ritual's core output.** For each active domain: did anything this week change what's true?
    - Yes → append a dated `_log.md` entry, replace stale `_context.md` text (don't stack on top of it).
-   - No → write nothing to the files, but say so explicitly: "example-domain — no change this week."
+   - No → write nothing to the files, but say so explicitly: "[domain] — no change this week."
    Do the same for active projects (`_index.md` + roll-up in `_projects-index.md`).
    **Report at the end, always, in chat:**
    ```
@@ -32,3 +32,7 @@
 12. Confirm next Monday's "week start" calendar block exists; flag if missing.
 
 **Rule this ritual exists to enforce:** a deliberate "no change" is a valid, healthy output. A silent absence of any output — this ritual not running at all for a week — is the actual failure state, and nothing else in the system catches it as reliably as this step running on schedule.
+
+## If a connector is down
+
+Say so at the top of the output ("Calendar not reachable"), skip that source, and continue with what is available. Never silently produce a result that looks complete. Record the gap in the journal so the next run can catch up. If the vault itself is unreachable, produce the full output in chat so it can be pasted in later.

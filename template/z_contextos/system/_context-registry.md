@@ -20,8 +20,6 @@ Read by `ritual-context-audit.md` and `ritual-eow.md` Step 1. This file itself i
 
 | File | Last updated | Status |
 |---|---|---|
-| `Domains/example-domain/_context.md` | 2026-01-01 | seeded (worked example) |
-| `Domains/example-domain/_index.md` | 2026-01-01 | seeded (worked example) |
 | `Domains/personal-ops/_context.md` | 2026-01-01 | seeded (placeholder — fill in) |
 | `Domains/personal-ops/_index.md` | 2026-01-01 | seeded (placeholder — fill in) |
 | `Projects/_projects-index.md` | 2026-01-01 | seeded (placeholder — fill in) |

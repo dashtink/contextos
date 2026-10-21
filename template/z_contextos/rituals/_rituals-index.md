@@ -1,6 +1,6 @@
 # Rituals Index — Intent Recognition
 
-Full narrative reference: `docs/03-rituals.md` in the parent repo. This file is the routing table the assistant checks first — identical content lives in both by design, so either alone is a complete reference.
+This file is the routing table the assistant checks first. It points only to files inside the vault.
 
 ## Intent Recognition
 
@@ -17,6 +17,7 @@ Full narrative reference: `docs/03-rituals.md` in the parent repo. This file is 
 | Meeting debrief | "quick debrief on [meeting]" | `ritual-debrief.md` |
 | Weekly review | "give me a weekly review", "how was my week" | `ritual-weekly-review.md` |
 | Context audit | "audit my context files", "what's out of date" | `ritual-context-audit.md` |
+| Setup check | "check my setup", "validate the vault", end of setup | `ritual-setup-check.md` |
 | Feedback to incorporate | `> FEEDBACK: [comment]` inline in a doc | write to the right file immediately, no ritual needed |
 
 ## Conditional Chains (no confirmation needed)
@@ -24,6 +25,7 @@ Full narrative reference: `docs/03-rituals.md` in the parent repo. This file is 
 | Ritual | Condition | Auto-triggers |
 |---|---|---|
 | Morning | Yesterday's EOD section missing | → runs `ritual-eod.md` for yesterday first |
+| Morning | A session on a prior day has no Session Wrap entry | → runs `ritual-wrap.md` retroactively for that day (before EOD) |
 | Morning | Monday + last week's weekly review missing | → runs `ritual-eow.md` first |
 | Morning | A scheduled-scan doc exists for today | → reads + processes automatically, no confirmation needed |
 | Start of Week | Last week's weekly journal missing/incomplete | → runs `ritual-eow.md` first |

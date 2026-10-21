@@ -17,3 +17,7 @@
 8. Summarize in chat: what was produced/decided, what's still open, which files need attention, and a re-paste flag if the project-instructions file changed.
 
 **Built-in failure mode:** if a vault write fails mid-wrap, produce the entire pending summary in chat, formatted so it can be pasted back into the vault manually — never let a failed write silently lose work that hasn't saved yet.
+
+## If a connector is down
+
+Say so at the top of the output ("Calendar not reachable"), skip that source, and continue with what is available. Never silently produce a result that looks complete. Record the gap in the journal so the next run can catch up. If the vault itself is unreachable, produce the full output in chat so it can be pasted in later.

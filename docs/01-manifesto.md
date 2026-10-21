@@ -1,16 +1,68 @@
 # ContextOS — Manifesto & Philosophy
 
-## 0 — Thesis
+## 0 — ContextOS on one page
 
-The bottleneck in working with AI was never the model. It's context.
+**The thesis:** the bottleneck in working with AI was never the model. It's context.
 
-Most people use an LLM like a search bar — ask a question, get an answer, close the tab, lose everything. Fine for trivia; a waste for anyone doing real work, because it treats an increasingly capable collaborator like a vending machine instead of a colleague.
+### What it is
+A folder of plain-text notes (an Obsidian vault) plus a small set of rules and behavior specs. Claude reads it at the start of work and updates it as you go. It holds what's true now about your work (people, projects, decisions, deadlines), the history of how it changed, and how the assistant should behave. It is a context layer that runs inside tools you already use (Claude Desktop or Claude Code). It is not a harness, a plugin or an API; the harness is the app that runs the model, and ContextOS is the memory and instructions it reads.
 
-ContextOS is the bet that if the infrastructure exists to carry real context — who reports to whom, what's in flight, what got said in last Tuesday's meeting, what an acronym actually refers to, what was decided and *why* — the ceiling on what an LLM can do isn't the model. It's the discipline of the system around it.
+### What it does
+- Every session starts oriented. You stop re-explaining who reports to whom, what was decided, what's still open.
+- A morning briefing from calendar, tasks, email, chat and prior sessions, and prep for each meeting.
+- Transcripts turn into meeting notes, context updates and tasks in one pass.
+- Nothing tracked slips silently: overdue items, stale context and skipped rituals get surfaced.
+- A dated record of decisions and reasoning, and wins captured for review season.
+- Claude reads and writes local files, so it drafts docs in Obsidian and you edit them in place, which is hard to do in a Google Doc.
+
+### How you use it
+Five phrases, said in chat: **"morning"** to start the day, **"wrap this up"** to end a work block, **"end of day"**, and **"end of week"** / **"start of week"**. Setup is agent-led: point Claude at this repo and it follows [`SETUP.md`](../SETUP.md). Plan on about two hours up front, then a few minutes a day.
+
+### How it works: the building blocks
+| Block | What it is |
+|---|---|
+| **Vault** | Plain markdown that holds state. The chat is where reasoning happens. |
+| **Two layers** | Your layer (`Daily/`, `Domains/`, `Projects/`, `Links/`, `Scratch Pad/`) and the system layer (`z_contextos/`: rituals, rules, templates, persona, memory). |
+| **Domains** | Durable subject areas with no end date. Each has a human dashboard and a machine-facing context + log. |
+| **Projects** | Deliverables with a deadline, usually spanning domains. They move to `Projects/Complete/` when shipped. |
+| **Memory files** | `_context.md` (current state), `_log.md` (append-only history), `_index.md` (human dashboard). |
+| **People and meetings** | One note per recurring person and per meeting, surfaced as Bases (views). |
+| **Rituals** | Numbered behavior specs, loaded fresh from disk each run: Morning, End of Day, Session Wrap, Start/End of Week, Weekly Review, Process Transcript, Process Notes, Meeting Prep, Meeting Debrief, Context Audit, Setup Check. |
+| **Rules** | One file per concern (context files, tagging, tokens, documents, sensitive material, system changes). Rules are contracts for handling files; the principles below are the *why*. |
+| **Persona and voice guide** | The persona is a behavioral contract for the assistant. The voice guide is for ghostwriting as you. |
+| **Router** | The one short file pasted into Claude's project instructions. It points the assistant at the core file in the vault, so behavior changes never need re-pasting. |
+| **Ambient sources** | Read-only inputs (calendar, email, chat, tasks, drive, prior sessions), always date-filtered. |
+| **Closed vocabularies** | Tags, project status and task tiers use fixed lists. New tags need propose-then-approve. |
+| **Change log and registry** | The system documents its own changes. |
+
+### Operating principles
+1. **Vault as memory, chat as compute.** If it matters, write it down.
+2. **Distill, don't accumulate.** Context holds current state; history goes to the log.
+3. **Every file read costs tokens.** Load only what the task needs: lazy-load by domain, date-filter sources, use ranges for big files.
+4. **Invisible steps get silently skipped.** Anything load-bearing must produce a visible artifact. "Nothing changed" is a valid output; silence is the failure state.
+5. **Ritual fidelity over speed.** Load the spec in full every time. Never run from memory.
+6. **Domains are not projects.** Promote to a project only if it hits two of: spans domains, hard deadline, more than one deliverable.
+7. **Closed vocabularies over free-form tags.** Open tagging drifts within weeks.
+8. **One task tier.** A two-tier model collapsed because the second tier stopped being opened.
+9. **Wins are opt-in.** The system surfaces candidates; you decide.
+10. **Don't guess attribution.** Wrong speaker labels are worse than none.
+11. **Reads before writes, writes one at a time.** Filesystem access can drop mid-session; if a write fails, dump the summary in chat.
+12. **The system documents itself.** Behavior changes get logged the same session.
+13. **Every fix needs its own audit.** A monitor only catches the failure it was built for.
+14. **Overhead must stay smaller than the overhead it replaces.**
+15. **Inference gets marked.** Anything the assistant infers is tagged `[confirm]` with its source until you verify it.
+
+**Costs:** upfront build, ongoing ritual discipline, periodic pruning. It decays without these.
+
+### Where this sits next to built-in memory
+Claude has its own memory, can search past chats, and supports Projects with uploaded files. Those help, but they are hard to inspect, structure or keep current in near real time, and they don't enforce a shape. ContextOS is the explicit, editable version: you can read it, fix it, version it, and the assistant is told exactly which parts to load for which task. The practice of deciding what goes into a model's context and loading it on demand rather than all at once is sometimes called *context engineering*; loading only what a task needs is *progressive disclosure*. ContextOS applies both to a personal knowledge base.
+
+### Personal first, team-capable
+It was built and run by one person: one vault, one assistant, solo and internal-only, with no access boundaries inside the vault. A team handoff would first need personal build notes separated out. In principle it can support a team, for example Obsidian for personal context and a GitHub repo for shared team context, but that layout isn't designed here yet.
 
 ## 1 — The Problem
 
-- **LLMs have no memory between sessions.** Every new chat starts at zero — a fact about the architecture, not a complaint. But it means anyone using it for ongoing work pays a re-explaining tax every time they open it.
+- **LLMs don't carry reliable, inspectable context between sessions.** Built-in memory and past-chat search exist, but they're opaque, hard to keep near-real-time, and unstructured, so anyone using an LLM for ongoing work still pays a re-explaining tax.
 - **The obvious fixes don't fix it.** Agents, skills, and scheduled automation give you *automation*, not *context*. You can automate a broken process exactly as easily as a good one — if what's being run doesn't actually know the reporting structure, automating it just means getting wrong answers faster and on a schedule. Re-pasting docs every session isn't a system either — that's just the tax, paid more efficiently.
 - **The personal overhead is real and mostly invisible.** A meaningful chunk of any week isn't strategic thinking — it's re-establishing context: what did we decide, who owns this now, where did I leave this thread. None of that shows up on a task list. All of it eats the day.
 - **The meta-problem: knowledge work quietly became context-assembly.** Original thinking is a small fraction of the job now. The rest is remembering, connecting, and re-explaining — across multiple domains, a half-dozen stakeholders, and whatever changed since the last look. Nothing built for knowledge work — not the AI tools, not the calendar, not the task tracker — is built to carry that load. So this system exists to carry it.
@@ -50,7 +102,7 @@ The specific domains in this template are placeholders — a real instance repla
 
 ## 4 — The Rituals, In Full
 
-Eleven ritual files, each loaded fresh in full every time it runs — never from memory, since the assistant has no training-data knowledge of what a specific ritual means in this system without reading the spec. Full specs: [`docs/03-rituals.md`](03-rituals.md).
+Twelve ritual files, each loaded fresh in full every time it runs — never from memory, since the assistant has no training-data knowledge of what a specific ritual means in this system without reading the spec. Full specs: [`docs/03-rituals.md`](03-rituals.md).
 
 - **Morning** is the most heavily instrumented. Opens with non-negotiable rules (ambient sources pulled, meeting notes created, inbox items routed not just counted, context written before the briefing goes out) precisely because these are the steps most tempting to skip under time pressure.
 - **End of Day** and **Session Wrap** solve the same problem (closing something out) at two scopes — a day vs. a single working session. Both require zero summary from the human.

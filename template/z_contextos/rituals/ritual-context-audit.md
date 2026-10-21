@@ -17,4 +17,8 @@
 
 **This ritual is explicitly NOT the primary context-maintenance mechanism.** It's for ad-hoc deep checks — path errors, architecture drift, unprocessed-transcript backlogs — not routine freshness. Freshness is the End-of-Week ritual's job. **If files are turning up stale often here, the fix is checking whether `ritual-eow.md` actually ran last week — not running this audit more often.**
 
-An earlier version of this ritual framed context as something that "should update continuously during sessions," with this audit as a light catch-up. That framing was rewritten after two domains went roughly three months with zero log entries across ~50 sessions while the daily journal ran at near-100% in the same window — direct evidence that continuous in-session updating isn't a reliable mechanism on its own, because it produces no artifact whose absence is visible. See `docs/05-lessons-learned.md` in the parent repo.
+An earlier version of this ritual framed context as something that "should update continuously during sessions," with this audit as a light catch-up. That framing was rewritten after two domains went roughly three months with zero log entries across ~50 sessions while the daily journal ran at near-100% in the same window — direct evidence that continuous in-session updating isn't a reliable mechanism on its own, because it produces no artifact whose absence is visible. See `z_contextos/reference/_why.md`.
+
+## If a connector is down
+
+Say so at the top of the output ("Calendar not reachable"), skip that source, and continue with what is available. Never silently produce a result that looks complete. Record the gap in the journal so the next run can catch up. If the vault itself is unreachable, produce the full output in chat so it can be pasted in later.

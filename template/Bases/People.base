@@ -1,0 +1,9 @@
+filters:
+  and:
+    - file.hasTag("type/person")
+views:
+  - type: table
+    name: People
+    order:
+      - file.name
+      - file.mtime

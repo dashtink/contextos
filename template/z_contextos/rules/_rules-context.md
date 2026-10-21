@@ -23,7 +23,7 @@ Opportunistically, not as the primary mechanism:
 - When new information directly contradicts existing context.
 - When explicitly asked.
 
-**The primary mechanism is the End-of-Week ritual's domain distillation step.** Don't rely on continuous in-session updates alone — see `docs/05-lessons-learned.md` in the parent repo for why that failed in production over a three-month period.
+**The primary mechanism is the End-of-Week ritual's domain distillation step.** Don't rely on continuous in-session updates alone — see `z_contextos/reference/_why.md` for why that failed in production over a three-month period.
 
 ## People Files
 
@@ -32,3 +32,6 @@ Create `z_contextos/_data/People/[Name].md` the first time a recurring stakehold
 ## One Log Per Domain
 
 Exactly one `_log.md` per domain, always under `z_contextos/_data/Domains/[domain]/`. Never create a second one under `Domains/[domain]/` — that split caused duplicate, silently-stale logs in production. If you ever find one there, it's drift; delete it after confirming nothing unique is in it.
+
+## `[confirm]` and provenance
+Anything the assistant infers rather than is told (especially during first-pass seeding from ambient sources) is written with `[confirm]` and a provenance line: `(source: <where>, <date>)`. When sources disagree, list both and mark `[confirm]`; never state one as fact. The user clears a `[confirm]` by verifying it. The setup check reports the `[confirm]` count per domain.

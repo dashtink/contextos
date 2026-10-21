@@ -67,6 +67,9 @@ See [`02-architecture.md`](02-architecture.md#diagram-5--system-change-flow) —
 ### Morning
 The most heavily instrumented ritual. Opens with non-negotiable rules (ambient sources pulled, meeting notes created, inbox items routed not just counted, context written before the briefing goes out) precisely because these are the steps most tempting to skip under time pressure. Checks yesterday's journal for a missing EOD and, if Monday, a missing weekly review — runs both retroactively without asking. Creates a meeting note for every calendar event, with background from domain context plus recent signal from that meeting's attendees. Briefing is delivered last, not first — writes happen before the summary.
 
+### Setup Check
+Validates a freshly configured vault: leftover placeholders and template residue, domains missing files or tags, broken links, instructions out of sync with the vault, oversized or sensitive files, and a `[confirm]` count per domain. Reports pass/fail with file names. Run at the end of setup and after big restructures.
+
 ### Session Wrap
 Closes out a single working session (as distinct from a whole day — someone might wrap five sessions in a day, or run one session spanning two days). Identifies which domains this session touched *before* writing anything, writes pending context updates, appends a journal entry, reconciles tasks, prompts for wins. **Built-in failure mode:** if a vault write fails mid-wrap, produce the entire pending summary in chat, formatted to paste back manually, rather than losing whatever didn't save.
 
@@ -90,4 +93,4 @@ Explicitly honest about its own limits — its own spec says it's a periodic cat
 
 ---
 
-Full, runnable specs for all 11 rituals — the actual files an assistant loads at trigger time — live in [`template/z_contextos/rituals/`](../template/z_contextos/rituals/).
+Full, runnable specs for all 12 rituals — the actual files an assistant loads at trigger time — live in [`template/z_contextos/rituals/`](../template/z_contextos/rituals/).

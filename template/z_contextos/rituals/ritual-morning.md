@@ -9,7 +9,7 @@
 - Context/journal writes happen *before* the briefing is delivered, not after.
 
 **Reads, in order:**
-1. Yesterday's daily journal. If yesterday's `## End of Day` section is missing → run `ritual-eod.md` for yesterday first, retroactively, without asking.
+1. Yesterday's daily journal (and any earlier day since the last journal). If sessions on a prior day have no Session Wrap entry → run `ritual-wrap.md` retroactively for that day first, without asking, from the journal and recent chats. Session Wrap on the next new day is the default, not an exception. Then, if yesterday's `## End of Day` section is missing → run `ritual-eod.md` for yesterday first, retroactively, without asking.
 2. If today is Monday and last week's Weekly Review is missing → run `ritual-eow.md` first.
 3. Google Calendar (or equivalent) — today's events.
 4. `Daily/Tasks.md` — active items.
@@ -46,3 +46,7 @@
 ```
 
 **Known failure mode this ritual guards against:** a multi-day gap where no session runs at all is a different failure than stale context, and needs its own check — compare the most recent daily journal's filename to today's date, and surface the gap explicitly if it's more than one weekday, even if nothing else looks stale.
+
+## If a connector is down
+
+Say so at the top of the output ("Calendar not reachable"), skip that source, and continue with what is available. Never silently produce a result that looks complete. Record the gap in the journal so the next run can catch up. If the vault itself is unreachable, produce the full output in chat so it can be pasted in later.
