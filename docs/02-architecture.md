@@ -2,7 +2,7 @@
 
 ## What ContextOS Is For
 
-An LLM chat assistant has no memory between sessions — every conversation starts from zero unless something outside the chat carries context forward. ContextOS is that outside memory: a plain-text vault the assistant reads and writes every session via filesystem access, so it can function like a chief of staff who's been in the room for months, not a fresh hire every morning. Everything below is in service of that one goal: make context survive the gap between sessions, cheaply, without becoming stale or contradictory.
+An LLM chat assistant doesn't reliably carry inspectable, current context from one session to the next. Built-in memory and past-chat search help, but they're opaque, hard to keep near-real-time and unstructured, so a new conversation still tends to start close to zero unless something outside the chat carries context forward. ContextOS is that explicit, editable context layer: a plain-text vault the assistant reads and writes every session via filesystem access, so it can function like a chief of staff who's been in the room for months, not a fresh hire every morning. Everything below is in service of that one goal: make context survive the gap between sessions, cheaply, without becoming stale or contradictory.
 
 ## Core Design Principles
 
@@ -151,7 +151,7 @@ Two folders per domain is deliberate: `Domains/<d>/` is for you, `z_contextos/_d
 ## How the System Changes Itself
 
 1. Document a new workflow behavior in the same session it's introduced — not as a follow-up task.
-2. Know which files a given change type touches (structure change → architecture map; new ritual → ritual index + ritual file + bootstrap doc; tagging change → taxonomy + rules file) and update all of them together.
+2. Know which files a given change type touches (structure change → architecture map; new ritual → ritual index + ritual file + `contextos-core.md`; tagging change → taxonomy + rules file) and update all of them together.
 3. Log every change with a dated entry explaining *what* changed and *why* — the "why" is what lets a future rebuild avoid re-making a mistake already made once.
 4. Behavior changes take effect next session because the router tells the assistant to read `contextos-core.md` from the vault. Re-paste the router only if the vault path or the router changes.
 
@@ -160,7 +160,7 @@ Two folders per domain is deliberate: `Domains/<d>/` is for you, `z_contextos/_d
 ```mermaid
 flowchart TD
     A[A change is proposed] --> B{What kind of change?}
-    B -->|New ritual / behavior| C1["_rituals-index.md + project instructions"]
+    B -->|New ritual / behavior| C1["_rituals-index.md + contextos-core.md"]
     B -->|New tool / integration| C2["_architecture.md component index"]
     B -->|New ambient data source| C3["_rules file — ambient sources table"]
     B -->|Vault structure / paths| C4["_architecture.md vault map"]

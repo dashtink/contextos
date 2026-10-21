@@ -1,10 +1,12 @@
 # ContextOS
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Version](https://img.shields.io/badge/version-0.2.1-blue.svg)](CHANGELOG.md)
 
-**A persistent-memory system for working with Claude (or any LLM) across sessions — designed, run, and iterated on daily for over three months before being distilled into this template.**
+**Current release: v0.2.1** · see [`CHANGELOG.md`](CHANGELOG.md)
 
-ContextOS is a plain-text vault (built for Obsidian, but the format is tool-agnostic) plus a set of rules and behavior specs that turn a stateless chat assistant into something closer to a chief of staff who's been in the room for months. It is the outside memory an LLM doesn't have: a place for "who reports to whom," "what did we decide and why," "what's still open," and "what does this acronym mean here" to live between sessions, so none of it has to be re-explained.
+**A persistent-context system for working with Claude (or any LLM) across sessions — designed, run, and iterated on daily for over three months before being distilled into this template.**
+
+ContextOS is a plain-text vault (built for Obsidian, but the format is tool-agnostic) plus a set of rules and behavior specs that turn a chat assistant into something closer to a chief of staff who's been in the room for months. Claude has built-in memory and past-chat search, but they're opaque and hard to keep current. ContextOS is the explicit, editable version: a place for "who reports to whom," "what did we decide and why," "what's still open," and "what does this acronym mean here" to live between sessions, so none of it has to be re-explained. You can read it, fix it and version it, and the assistant is told exactly which parts to load for which task.
 
 This repo is not a wrapper, a plugin, or an API. It's an information-architecture pattern — file types, folder shapes, and behavior contracts — that happens to run on top of Claude's filesystem access. The interesting part isn't the AI. It's the system around it.
 
