@@ -29,7 +29,7 @@ flowchart LR
 
 ## Diagram 5 — System Change Flow
 
-See [`02-architecture.md`](02-architecture.md#diagram-5--system-change-flow) — identical content lives in both the architecture doc and the project-instructions file by design, so either alone is a complete reference.
+See [`02-architecture.md`](02-architecture.md#diagram-5--system-change-flow) — the architecture doc is the reference. Behavior changes live in the vault's `contextos-core.md`, which the router loads each session.
 
 ---
 
@@ -48,6 +48,7 @@ See [`02-architecture.md`](02-architecture.md#diagram-5--system-change-flow) —
 | Meeting debrief | "quick debrief on [meeting]" | `ritual-debrief.md` |
 | Weekly review | "give me a weekly review", "how was my week" | `ritual-weekly-review.md` |
 | Context audit | "audit my context files", "what's out of date" | `ritual-context-audit.md` |
+| Setup check | "check my setup", "validate the vault" | `ritual-setup-check.md` |
 | Feedback to incorporate | `> FEEDBACK: [comment]` inline in a doc | write to the right file immediately |
 
 ### Conditional chains (no confirmation needed)
@@ -55,6 +56,7 @@ See [`02-architecture.md`](02-architecture.md#diagram-5--system-change-flow) —
 | Ritual | Condition | Auto-triggers |
 |---|---|---|
 | Morning | Yesterday's EOD section missing | → runs `ritual-eod.md` for yesterday first |
+| Morning | A prior-day session has no Session Wrap entry | → runs `ritual-wrap.md` retroactively for that day first |
 | Morning | Monday + last week's weekly review missing | → runs `ritual-eow.md` first |
 | Morning | A scheduled-scan doc exists for today | → reads + processes automatically, no confirmation needed |
 | Start of Week | Last week's weekly journal missing/incomplete | → runs `ritual-eow.md` first |

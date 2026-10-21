@@ -1,6 +1,6 @@
-# ContextOS — Setup Guide
+# ContextOS — Getting Started & Customizing
 
-The fast path: **point Claude at this repo and say "set up ContextOS."** Claude reads [`CLAUDE.md`](../CLAUDE.md) and [`SETUP.md`](../SETUP.md), asks a few questions, builds your vault, and checks it. This guide is the human-readable version of what it does, so you know what to expect and can do any step by hand.
+The fast path: **point Claude at this repo and say "set up ContextOS."** Claude reads [`CLAUDE.md`](../CLAUDE.md) and [`SETUP.md`](../SETUP.md), asks a few questions, builds your vault, and checks it. [`SETUP.md`](../SETUP.md) is the only setup procedure (phases, times and a "done when" for each). This page covers what you need to know around it: how to start, how to decide your domains, how your vault is laid out, and how to use and customize it afterwards.
 
 **Time:** about 2 hours for phases 1 to 6, mostly answering questions. **You need:** Obsidian (free) and Claude Desktop with the Filesystem extension, or Claude Code. Calendar, email and drive connections are recommended, not required.
 
@@ -12,15 +12,7 @@ The fast path: **point Claude at this repo and say "set up ContextOS."** Claude 
 
 ## The path
 
-| # | Phase | Time | Done when |
-|---|---|---|---|
-| 1 | **Prepare.** Choose a vault folder (local, not iCloud/Dropbox), copy `template/` into it, open it in Obsidian. | 10 min | The vault opens and shows the template folders. |
-| 2 | **Decide.** Domains, projects, task source, on-demand vs scheduled, ambient sources, what must never be stored. | 15 min | You've confirmed each choice. |
-| 3 | **Interview.** Role, people, working style and persona, goals. Claude generates your persona, core file, domains, projects and People notes. | 20 min | No raw `[PLACEHOLDER]`s remain except those marked `[later]`. |
-| 4 | **Seed** (optional). Claude scans the last 30 days of connected sources and drafts each domain, marking inferred facts `[confirm]`. | 30 min | Every domain has a context and log. |
-| 5 | **Connect.** Create a Claude Project, paste `router.md` once, grant vault access. | 10 min | Saying "morning" runs the ritual and writes a journal. |
-| 6 | **Check.** Claude runs the setup check. | 10 min | Zero blockers. |
-| 7 | **First week.** Run morning and end-of-day, resolve `[confirm]` items. | a few min/day | You've used it four days. |
+Prepare → Decide → Interview → Seed → Connect → Check → First week. About 2 hours for the first six, mostly answering questions. Each phase's steps and "done when" are in [`SETUP.md`](../SETUP.md); Claude tells you which phase it's in.
 
 ## Deciding your domains
 

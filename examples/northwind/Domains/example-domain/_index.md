@@ -4,7 +4,7 @@ updated: 2026-01-01
 ---
 # Example Domain — Dashboard
 
-> This is a worked example showing what a domain dashboard looks like once it's been in use for a while. The scenario below is entirely invented for illustration — delete or rename this folder once you've created your own real domains. See `docs/04-setup-guide.md` in the parent repo for how to choose them.
+> This is a worked example showing what a domain dashboard looks like once it's been in use for a while. The scenario below is entirely invented for illustration — delete or rename this folder once you've created your own real domains. See `docs/04-getting-started.md` in the parent repo for how to choose them.
 
 ## What This Domain Owns
 
