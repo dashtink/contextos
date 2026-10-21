@@ -27,8 +27,8 @@ ContextOS is the bet that if the infrastructure exists to carry real context for
 | [`docs/01-manifesto.md`](docs/01-manifesto.md) | The problem, the philosophy, the non-negotiable design principles, what it costs |
 | [`docs/02-architecture.md`](docs/02-architecture.md) | The vault structure, the file-type contract that holds memory, domains vs. projects, closed vocabularies, system diagrams |
 | [`docs/03-rituals.md`](docs/03-rituals.md) | Full behavior specs for the 12 rituals that drive the system — triggers, inputs, steps, outputs |
-| [`docs/04-setup-guide.md`](docs/04-setup-guide.md) | The setup path, phase by phase, with a "done when" for each |
-| [`SETUP.md`](SETUP.md) | The setup playbook Claude follows when you point it at this repo |
+| [`SETUP.md`](SETUP.md) | The one setup procedure: phases with a "done when" for each. Claude follows it when you point it at this repo. |
+| [`docs/04-getting-started.md`](docs/04-getting-started.md) | How to start, deciding domains, your vault layout, daily rhythm, customizing |
 | [`docs/05-lessons-learned.md`](docs/05-lessons-learned.md) | The failure modes that actually happened, the fixes that came out of them, and what's still unsolved — a real build history, not a highlight reel |
 | [`template/`](template/) | The vault skeleton setup copies and fills in |
 | [`examples/northwind/`](examples/northwind/) | A filled-in fictional domain and project instructions, for reference. Never copied into a live vault. |
@@ -76,7 +76,7 @@ See [`docs/05-lessons-learned.md`](docs/05-lessons-learned.md) for how that less
 
 ## Set it up
 
-Point Claude at this repo and say **"set up ContextOS."** Claude reads [`CLAUDE.md`](CLAUDE.md) and [`SETUP.md`](SETUP.md), asks a few questions, copies [`template/`](template/) into a vault, fills it in, and validates it. About two hours, mostly answering questions. Details and the phase-by-phase "done when" are in [`docs/04-setup-guide.md`](docs/04-setup-guide.md).
+Point Claude at this repo and say **"set up ContextOS."** Claude reads [`CLAUDE.md`](CLAUDE.md) and [`SETUP.md`](SETUP.md), asks a few questions, copies [`template/`](template/) into a vault, fills it in, and validates it. About two hours, mostly answering questions. The phase-by-phase "done when" is in `SETUP.md`; day-to-day use and customizing are in [`docs/04-getting-started.md`](docs/04-getting-started.md).
 
 New here? [`docs/01-manifesto.md`](docs/01-manifesto.md) opens with a one-page summary: what it is, what it does, how to use it, the building blocks and the operating principles.
 

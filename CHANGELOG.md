@@ -7,6 +7,7 @@ Wording only; no structural changes. Safe to apply by replacing the listed `syst
 - Repo-wide language pass: removed the remaining "no memory" and "stateless" framing from `README.md` and `docs/02-architecture.md` (built-in memory acknowledged; ContextOS described as the explicit, editable layer).
 - Removed leftover "bootstrap doc", "project-instructions file" and re-paste wording from `docs/02-architecture.md`, `docs/03-rituals.md`, `ritual-wrap.md` and `_rules-token.md`.
 - `docs/03-rituals.md`: added Setup Check and the retroactive Session Wrap chain to the index and chain tables.
+- Merged the two setup guides: `SETUP.md` is the only setup procedure; `docs/04-setup-guide.md` became `docs/04-getting-started.md` (how to start, domains, layout, rhythm, customizing) and no longer repeats the phases.
 - Fixed ritual count (12) in the template change log. Release version now shown in the README.
 
 ## 0.2.0 — 2026-10-21
